@@ -15,7 +15,7 @@ const Homepage = () => {
                 onClick={toggleDarkMode}
                 className="absolute top-4 right-4 p-2 bg-blue-500 text-white rounded"
             >
-                {darkMode ? 'Light Mode' : 'Dark Mode'}
+                {darkMode ? <FaSun /> : <FaMoon />}
             </button>
             <h1 className="text-4xl font-bold mb-4">Welcome to the Homepage</h1>
             <p className="text-lg mb-8">This is the homepage of your Next.js project.</p>
