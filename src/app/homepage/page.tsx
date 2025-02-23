@@ -3,9 +3,14 @@ import {useState , useEffect} from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import Link from 'next/link';
 import ListComponent from '@/components/ListComponent';
+import { useSelector , useDispatch } from 'react-redux';
+import { RootState } from '@/redux/store';
 
 const Homepage = () => {
     const [darkMode, setDarkMode] = useState(false);
+
+    const dispatch = useDispatch();
+    const userName = useSelector((state:RootState) => state.userInfo.user);
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
@@ -29,7 +34,7 @@ const Homepage = () => {
             >
                 {darkMode ? <FaSun /> : <FaMoon />}
             </button>
-            <h1 className="text-4xl font-bold mb-4">Welcome to the Homepage</h1>
+            <h1 className="text-4xl font-bold mb-4">Welcome to the Homepage {userName}</h1>
             <p className="text-lg mb-8">This is the homepage of your Next.js project.</p>
             <ListComponent darkMode={darkMode} isMounted={isMounted}/>
         </div>
